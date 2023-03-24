@@ -16,13 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         game:
-          - altv
-          - arma3
-          - dayz
-          - mohaa
-          - samp
           - source
-          - valheim
           
     steps:
       - uses: actions/checkout@v3
@@ -32,7 +26,7 @@ jobs:
       - uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: bsk193
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
@@ -41,4 +35,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/parkervcp/games:${{ matrix.game }}
+            ghcr.io/bsk193/games:${{ matrix.game }}
