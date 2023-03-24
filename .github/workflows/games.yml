@@ -26,8 +26,8 @@ jobs:
       - uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: bsk193
-          password: ${{ secrets.REGISTRY_TOKEN }}
+          username: ${{ secrets.REG_USER }}
+          password: ${{ secrets.REG_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
           context: ./games/${{ matrix.game }}
